@@ -1,0 +1,23 @@
+{
+  "name": "rduk-errors",
+  "version": "1.0.0",
+  "description": "rduk errors",
+  "main": "lib/factory.js",
+  "scripts": {
+    "lint": "jshint lib/**/*.js",
+
+    "pretest": "npm run lint",
+    "test": "istanbul cover jasmine"
+  },
+  "author": "Kim UNG",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rduk/rduk-errors"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.5",
+    "jasmine": "2.5.2",
+    "jshint": "2.9.4"
+  }
+}
