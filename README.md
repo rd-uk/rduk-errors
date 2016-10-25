@@ -1,5 +1,7 @@
 # RDUK - errors
 
+[![Build Status](https://travis-ci.org/rd-uk/rduk-errors.svg?branch=master)](https://travis-ci.org/rd-uk/rduk-errors)
+
 ## Installation
 
 ```
