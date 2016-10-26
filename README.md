@@ -27,4 +27,4 @@ errors.throwArgumentError('name');
 * errors.ArgumentOutOfRangeError
 * errors.ConfigurationError
 * errors.NotImplementedError
-* errors.NotSUpportedError
+* errors.NotSupportedError
