@@ -1,7 +1,7 @@
 {
   "name": "rduk-errors",
   "version": "1.0.0",
-  "description": "rduk errors",
+  "description": "Custom Errors library for Node",
   "main": "lib/factory.js",
   "scripts": {
     "lint": "jshint lib/**/*.js",
@@ -15,6 +15,12 @@
     "type": "git",
     "url": "https://github.com/rduk/rduk-errors"
   },
+  "keywords": [
+    "rduk",
+    "custom",
+    "errors",
+    "nodejs"
+  ],
   "devDependencies": {
     "istanbul": "0.4.5",
     "jasmine": "2.5.2",
