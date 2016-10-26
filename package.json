@@ -5,9 +5,9 @@
   "main": "lib/factory.js",
   "scripts": {
     "lint": "jshint lib/**/*.js",
-
     "pretest": "npm run lint",
-    "test": "istanbul cover jasmine"
+    "test": "istanbul cover jasmine",
+    "posttest": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "Kim UNG",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "nodejs"
   ],
   "devDependencies": {
+    "coveralls": "2.11.14",
     "istanbul": "0.4.5",
     "jasmine": "2.5.2",
     "jshint": "2.9.4"

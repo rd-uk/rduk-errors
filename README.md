@@ -1,11 +1,12 @@
 # RDUK - errors
 
 [![Build Status](https://travis-ci.org/rd-uk/rduk-errors.svg?branch=master)](https://travis-ci.org/rd-uk/rduk-errors)
+[![Coverage Status](https://coveralls.io/repos/github/rd-uk/rduk-errors/badge.svg?branch=master)](https://coveralls.io/github/rd-uk/rduk-errors?branch=master)
 
 ## Installation
 
 ```
-npm install https://github.com/rduk/rduk-errors
+npm install rduk-errors --save --save-exact
 ```
 
 ## How to use it
