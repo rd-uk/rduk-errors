@@ -28,6 +28,14 @@ describe('errors', function() {
 
     var errors = require('../lib/factory.js');
 
+    describe('.create without name arg', function() {
+        it('shoul throw an ArgumentNullError', function() {
+            expect(function() {
+                errors.create();
+            }).toThrowError(errors.ArgumentNullError);
+        });
+    });
+
     describe('.throwArgumentError', function() {
         it('should throw an instance of ArgumentError', function() {
             expect(function() {
@@ -86,30 +94,42 @@ describe('errors', function() {
             });
         });
 
-        describe('call with an array containing a null value as argument', function() {
-            it('should throw an ArgumentNullError', function() {
-                expect(function() {
-                    errors.add([null]);
-                }).toThrowError(errors.ArgumentNullError);
-            });
-        });
-
-        describe('call with an array containing a non string value as argument', function() {
+        describe('call with bad name', function() {
             it('should throw an ArgumentError', function() {
                 expect(function() {
-                    errors.add([{}]);
+                    errors.add([]);
                 }).toThrowError(errors.ArgumentError);
             });
         });
 
-        describe('call with a string argument', function() {
-            it('should success', function() {
-                errors.add(path.resolve('spec/FakeError'));
+        describe('call with bad ctor', function() {
+            it('should throw an ArgumentError on error instantiation', function() {
                 expect(function() {
-                    errors.throwFakeError()
-                }).toThrowError(errors.FakeError);
+                    errors.add('UnknownError');
+                    errors.throwUnknownError();
+                }).toThrowError(errors.ArgumentError);
             });
-        })
+        });
+
+        describe('call with name and ctor as class path', function() {
+            it('should success', function() {
+                errors.add('FakeError1', path.resolve('spec/FakeError1'));
+                
+                expect(function() {
+                    errors.throwFakeError1();
+                }).toThrowError(errors.FakeError1);
+            });
+        });
+
+        describe('call with name and ctor as function', function() {
+            it('should success', function() {
+                errors.add('FakeError2', require('./FakeError2'));
+                
+                expect(function() {
+                    errors.throwFakeError2();
+                }).toThrowError(errors.FakeError2);
+            });
+        });
 
     });
 });
