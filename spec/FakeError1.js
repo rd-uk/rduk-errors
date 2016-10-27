@@ -22,18 +22,12 @@
  * SOFTWARE.
  */
 
-(function(require, module) {
+(function(module) {
 
     'use strict';
 
-    var util = require('util');
-
-    module.exports = function NotSupportedError(method) {
-        NotSupportedError.super_.call(
-            this,
-            util.format(
-                'Method "%s" not supported.',
-                method));
+    module.exports = function FakeError1() {
+        FakeError1.super_.call(this, 'this is a fake error.');
     };
 
-} (require, module));
+} (module));

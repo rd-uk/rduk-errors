@@ -22,16 +22,12 @@
  * SOFTWARE.
  */
 
-(function(require, module) {
+(function(module) {
 
     'use strict';
 
-    var util = require('util');
-
-    module.exports = function FakeError() {
-        FakeError.super_.call(this, 'this is a fake error.');
+    module.exports = function FakeError2() {
+        FakeError2.super_.call(this, 'this is a fake error.');
     };
 
-    util.inherits(module.exports, require('../lib/type/BaseError'));
-
-} (require, module));
+} (module));
