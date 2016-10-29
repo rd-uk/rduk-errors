@@ -9,19 +9,29 @@
 npm install rduk-errors --save --save-exact
 ```
 
-## How to use it
+## Usage
 
 ```js
 var errors = require('rduk-errors');
+```
 
-// you can instantiate a new error
+You can instantiate a new error from the [available errors list](#available_errors)
+
+```js
 var myarg = 1;
-var err = new errors.ArgumentError('myarg', myarg);
 
-console.log(err instanceof Error); // will output true
-console.log(err instanceof errors.ArgumentError); // will output true
+try {
+    var err = new errors.ArgumentError('myarg', myarg);
+    throw err;
+} catch(err) {
+    console.log(err instanceof Error); // will output true
+    console.log(err instanceof errors.ArgumentError); // will output true
+}
+```
 
-// or throw an error directly
+or throw it directly
+
+```js
 try {
     errors.throwArgumentError('myarg', myarg);
 } catch(err) {
@@ -35,7 +45,7 @@ try {
 }
 ```
 
-You can add your own custom error
+You can also add your own custom error
 
 ```js
 
@@ -64,6 +74,7 @@ try {
 
 By default, your custom error inherits `BaseError`. The `BaseError` class is in charge 
 to initialize all error specific properties.
+
 ```js
 /* BaseError.js */
 (function(require, module) {
@@ -83,6 +94,7 @@ to initialize all error specific properties.
 ```
 
 But you can, if needed, inherit from your own custom error
+
 ```js
 var errors = require('rduk-errors');
 
@@ -97,10 +109,11 @@ try {
 }
 ```
 
+<a name="available_errors"></a>
 ## Available errors
-* errors.ArgumentError
-* errors.ArgumentNullError
-* errors.ArgumentOutOfRangeError
-* errors.ConfigurationError
-* errors.NotImplementedError
-* errors.NotSupportedError
+* `errors.ArgumentNullError` ( `propertyName` );
+* `errors.ArgumentError` ( `propertyName` , `propertyValue` );
+* `errors.ArgumentOutOfRangeError` ( `propertyName` );
+* `errors.ConfigurationError` ( `message` );
+* `errors.NotImplementedError` ( `methodName` );
+* `errors.NotSupportedError` ( `methodName` );
