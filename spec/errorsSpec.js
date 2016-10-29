@@ -105,8 +105,16 @@ describe('errors', function() {
         describe('call with bad ctor', function() {
             it('should throw an ArgumentError on error instantiation', function() {
                 expect(function() {
-                    errors.add('UnknownError');
+                    errors.add('UnknownError'); 
                     errors.throwUnknownError();
+                }).toThrowError(errors.ArgumentError);
+            });
+        });
+
+        describe('call with bad base', function() {
+            it('should throw an ArgumentError', function() {
+                expect(function() {
+                    errors.add('FakeError1', path.resolve('spec/FakeError1'), 'bad base');
                 }).toThrowError(errors.ArgumentError);
             });
         });
@@ -128,6 +136,35 @@ describe('errors', function() {
                 expect(function() {
                     errors.throwFakeError2();
                 }).toThrowError(errors.FakeError2);
+            });
+        });
+
+        describe('call with custom base', function() {
+            it('should success', function() {
+                errors.add('FakeError3', require('./FakeError3'), errors.FakeError2);
+                
+                expect(function() {
+                    errors.throwFakeError3();
+                }).toThrowError(errors.FakeError3);
+
+                expect(new errors.FakeError3() instanceof Error).toBe(true);
+                expect(new errors.FakeError3() instanceof errors.FakeError2).toBe(true);
+            });
+        });
+
+        describe('call with custom base', function() {
+            it('should success', function() {
+                errors.add('FakeError4', function FakeError4() {
+                    FakeError4.super_.call(this);
+                }, errors.FakeError3);
+                
+                expect(function() {
+                    errors.throwFakeError4();
+                }).toThrowError(errors.FakeError4);
+
+                expect(new errors.FakeError4() instanceof Error).toBe(true);
+                expect(new errors.FakeError4() instanceof errors.FakeError2).toBe(true);
+                expect(new errors.FakeError4() instanceof errors.FakeError3).toBe(true);
             });
         });
 

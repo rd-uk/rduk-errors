@@ -44,8 +44,8 @@ You can add your own custom error
 
     'use strict';
 
-    module.exports = function FakeError() {
-        FakeError.super_.call(this, 'this is a fake error.');
+    module.exports = function FakeError(message) {
+        FakeError.super_.call(this, message);
     };
 
 } (module));
@@ -55,11 +55,46 @@ var errors = require('rduk-errors');
 errors.add('FakeError', require('pathToFakeError/FakeError'));
 
 try {
-    errors.throwFakeError();
+    errors.throwFakeError('this is a fake error.');
 } catch (err) {
     console.log(err instanceof errors.FakeError); // will output true
 }
 
+```
+
+By default, your custom error inherits `BaseError`. The `BaseError` class is in charge 
+to initialize all error specific properties.
+```js
+/* BaseError.js */
+(function(require, module) {
+
+    'use strict';
+
+    module.exports = function BaseError(message) {
+        Error.captureStackTrace(this, this.constructor);
+
+        this.name = this.constructor.name;
+        this.message = message;
+    };
+
+    require('util').inherits(module.exports, Error);
+
+} (require, module));
+```
+
+But you can, if needed, inherit from your own custom error
+```js
+var errors = require('rduk-errors');
+
+errors.add('ChildFakeError', function ChildFakeError() {
+    ChildFakeError.super_.call(this, 'this is a fake error.');
+}, errors.FakeError);
+
+try {
+    errors.throwChildFakeError();
+} catch (err) {
+    /* ... */
+}
 ```
 
 ## Available errors
