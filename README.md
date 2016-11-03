@@ -15,7 +15,7 @@ npm install rduk-errors --save --save-exact
 var errors = require('rduk-errors');
 ```
 
-You can instantiate a new error from the [available errors list](#available_errors)
+You can instantiate a new error from the available errors. see the [list](#available_errors)
 
 ```js
 var myarg = 1;
