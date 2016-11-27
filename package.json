@@ -1,6 +1,6 @@
 {
   "name": "rduk-errors",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Custom Errors library for Node",
   "main": "lib/factory.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rduk/rduk-errors"
+    "url": "https://github.com/rd-uk/rduk-errors"
   },
   "keywords": [
     "rduk",
