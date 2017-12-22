@@ -5,7 +5,7 @@
   "main": "lib/factory.js",
   "scripts": {
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js --report cobertura",
-    "posttest": "istanbul report && cat ./coverage/lcov.info | xargs -r ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "posttest": "istanbul report && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "RDUK",
   "license": "MIT",
