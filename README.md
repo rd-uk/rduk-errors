@@ -6,13 +6,13 @@
 ## Installation
 
 ```
-npm install rduk-errors --save --save-exact
+npm install @rduk/errors --save --save-exact
 ```
 
 ## Usage
 
 ```js
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 ```
 
 You can instantiate a new error from the available errors. see the [list](#available_errors)
@@ -61,7 +61,7 @@ You can also add your own custom error
 } (module));
 
 /* main.js */
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 errors.add('FakeError', require('pathToFakeError/FakeError'));
 
 try {
@@ -72,7 +72,7 @@ try {
 
 ```
 
-By default, your custom error inherits `BaseError`. The `BaseError` class is in charge 
+By default, your custom error inherits `BaseError`. The `BaseError` class is in charge
 to initialize all error specific properties.
 
 ```js
@@ -96,7 +96,7 @@ to initialize all error specific properties.
 But you can, if needed, inherit from your own custom error
 
 ```js
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 
 errors.add('ChildFakeError', function ChildFakeError() {
     ChildFakeError.super_.call(this, 'this is a fake error.');
