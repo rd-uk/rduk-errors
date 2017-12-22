@@ -10,4 +10,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - use npm org in package name (rduk-errors -> @rduk/errors)
 - update README
+- update jasmine version (2.6.0 -> 2.8.0)
 - update coveralls version (2.13.0 -> 3.0.0)
