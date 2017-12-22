@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2016 Kim UNG
+ * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -105,7 +105,7 @@ describe('errors', function() {
         describe('call with bad ctor', function() {
             it('should throw an ArgumentError on error instantiation', function() {
                 expect(function() {
-                    errors.add('UnknownError'); 
+                    errors.add('UnknownError');
                     errors.throwUnknownError();
                 }).toThrowError(errors.ArgumentError);
             });
@@ -122,7 +122,7 @@ describe('errors', function() {
         describe('call with name and ctor as class path', function() {
             it('should success', function() {
                 errors.add('FakeError1', path.resolve('spec/FakeError1'));
-                
+
                 expect(function() {
                     errors.throwFakeError1();
                 }).toThrowError(errors.FakeError1);
@@ -132,7 +132,7 @@ describe('errors', function() {
         describe('call with name and ctor as function', function() {
             it('should success', function() {
                 errors.add('FakeError2', require('./FakeError2'));
-                
+
                 expect(function() {
                     errors.throwFakeError2();
                 }).toThrowError(errors.FakeError2);
@@ -142,7 +142,7 @@ describe('errors', function() {
         describe('call with custom base', function() {
             it('should success', function() {
                 errors.add('FakeError3', require('./FakeError3'), errors.FakeError2);
-                
+
                 expect(function() {
                     errors.throwFakeError3();
                 }).toThrowError(errors.FakeError3);
@@ -157,7 +157,7 @@ describe('errors', function() {
                 errors.add('FakeError4', function FakeError4() {
                     FakeError4.super_.call(this);
                 }, errors.FakeError3);
-                
+
                 expect(function() {
                     errors.throwFakeError4();
                 }).toThrowError(errors.FakeError4);

@@ -1,7 +1,7 @@
 # RDUK - errors
 
 [![Build Status](https://travis-ci.org/rd-uk/rduk-errors.svg?branch=master)](https://travis-ci.org/rd-uk/rduk-errors)
-[![Coverage Status](https://coveralls.io/repos/github/rd-uk/rduk-errors/badge.svg?branch=master)](https://coveralls.io/github/rd-uk/rduk-errors?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/rd-uk/rduk-errors/badge.svg?branch=master)](https://coveralls.io/github/rd-uk/rduk-errors?branch=master) [![bitHound Overall Score](https://www.bithound.io/github/rd-uk/rduk-errors/badges/score.svg)](https://www.bithound.io/github/rd-uk/rduk-errors)
 
 ## Installation
 
@@ -117,3 +117,7 @@ try {
 * `errors.ConfigurationError` ( `message` );
 * `errors.NotImplementedError` ( `methodName` );
 * `errors.NotSupportedError` ( `methodName` );
+
+## License and copyright
+
+See [LICENSE](LICENSE) file
